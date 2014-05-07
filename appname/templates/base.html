@@ -21,10 +21,10 @@
         {% block css %}
         {% endblock %}                                                              
 
-        <script src="{{ url_for('static', filename='js/vendor/modernizr.min.js') }}"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css"
+         rel="stylesheet">
   </head>
 
   <body>
@@ -42,45 +42,43 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li><a href="{{ url_for('.home') }}">Home</a></li>
+                <li><a href="{{ url_for('.home') }}">Product</a></li>
               </ul>
             </div>
         </div>
       </div>
     </div>
 
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
 
-            {% block body %}
-            {% endblock %}
 
-        </div><!-- /.container -->
+        {% block body %}
+        {% endblock %}
 
         {% block footer %}
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="http://getbootstrap.com/examples/carousel/#">Back to top</a></p>
-        <p>© 2014 Company, Inc. · <a href="http://getbootstrap.com/examples/carousel/#">Privacy</a> · <a href="http://getbootstrap.com/examples/carousel/#">Terms</a></p>
-      </footer>
-
-
-      {% endblock %}
-
-        {% assets "common_js" %}
-            <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-        {% endassets %}
-
-        {% block js %}
-    <script src="./Carousel Template for Bootstrap_files/jquery.min.js"></script>
-    <script src="./Carousel Template for Bootstrap_files/bootstrap.min.js"></script>
-    <script src="./Carousel Template for Bootstrap_files/docs.min.js"></script>
+        <footer><p class="pull-right"><a href="http://getbootstrap.com/examples/carousel/#">Back to top</a></p><p>© 2014 Company, Inc. · <a href="http://getbootstrap.com/examples/carousel/#">Privacy</a> · <a href="http://getbootstrap.com/examples/carousel/#">Terms</a></p>
+        </footer>
         {% endblock %}
+
+    </div><!-- /.container -->
+
+    {% assets "common_js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
+    {% block js %}
+        <script src="{{ url_for('static', filename='js/vendor/modernizr.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/vendor/docs.min.js') }}"></script>
+    {% endblock %}
 
     </body>
 </html>

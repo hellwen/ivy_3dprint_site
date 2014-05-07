@@ -3,6 +3,9 @@
 {% block title %}Starter Template{% endblock %}
 
 {% block body %}
+    <!-- Carousel
+    ================================================== -->                 
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -41,8 +44,8 @@
           </div>
         </div>
       </div>
-      <a class="left carousel-control" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control"data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div><!-- /.carousel -->
 
 
@@ -116,4 +119,5 @@
 
       <hr class="featurette-divider">
       <!-- /END THE FEATURETTES -->
+    </div><!-- /.container -->  
 {% endblock %}
