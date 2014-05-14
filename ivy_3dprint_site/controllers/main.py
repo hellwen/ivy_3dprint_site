@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, flash, request
 
-from appname import cache
-from appname.forms import MyForm
+from ivy_3dprint_site import cache
+from ivy_3dprint_site.forms import MyForm
 
 main = Blueprint('main', __name__)
 
@@ -11,6 +11,13 @@ main = Blueprint('main', __name__)
 def home():
     return render_template('index.html')
 
+@main.route('/products')
+def products():
+    return render_template('products.html')
+
+@main.route('/product/<int:id>')
+def product(id):
+    return render_template('product.html')
 
 @main.route('/wtform', methods=['GET', 'POST'])
 def wtform():

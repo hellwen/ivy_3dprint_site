@@ -1,0 +1,113 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */                      
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+.navbar {
+  height: 20px;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+/* CUSTOMIZE THE CONTAINER
+-------------------------------------------------- */
+
+.container {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 350px;
+  margin-bottom: 30px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 350px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  height: 350px;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* PRODUCTS CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.products {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.products .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.products h2 {
+  font-weight: normal;
+}
+.products .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+-------------------------------------------------- */
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}

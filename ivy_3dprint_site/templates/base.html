@@ -18,9 +18,6 @@
         {% endassets %}
 
         {% block css %}
-        <link href="http://getbootstrap.com/examples/carousel/carousel.css" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css">
-        <script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script>
         {% endblock %}
 
         <script src="{{ url_for('static', filename='js/vendor/modernizr.min.js') }}"></script>
@@ -39,6 +36,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('.home') }}">Home</a></li>
+                    <li><a href="{{ url_for('.products') }}">Products</a></li>
                     <li><a href="{{ url_for('.wtform') }}">WTForms Example</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
@@ -57,7 +55,6 @@
             {% endblock %}
 
             {% block footer %}
-            <footer><p class="pull-right"><a href="http://getbootstrap.com/examples/carousel/#">Back to top</a></p> <p>© 2014 Company, Inc. · <a href="http://getbootstrap.com/examples/carousel/#">Privacy</a> · <a href="http://getbootstrap.com/examples/carousel/#">Terms</a></p> </footer>
             {% endblock %}
         </div>
         {% assets "common_js" %}
@@ -65,9 +62,6 @@
         {% endassets %}
         
         {% block js %}
-        <script src="./Carousel Template for Bootstrap_files/jquery.min.js"></script>   
-        <script src="./Carousel Template for Bootstrap_files/bootstrap.min.js"></script>
-        <script src="./Carousel Template for Bootstrap_files/docs.min.js"></script>
         {% endblock %}
     </body>
 </html>

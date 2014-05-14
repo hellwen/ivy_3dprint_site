@@ -5,9 +5,10 @@ from flask import Flask
 from flask_assets import Environment
 from webassets.loaders import PythonLoader as PythonAssetsLoader
 from flask.ext.cache import Cache
+from flask.ext.admin import Admin
 
-from appname import assets
-from appname.models import db
+from ivy_3dprint_site import assets
+from ivy_3dprint_site.models import db
 
 # Setup flask cache
 cache = Cache()
@@ -23,7 +24,7 @@ def create_app(object_name, env="prod"):
 
     Arguments:
         object_name: the python path of the config object,
-                     e.g. appname.settings.ProdConfig
+                     e.g. ivy_3dprint_site.settings.ProdConfig
 
         env: The name of the current environment, e.g. prod or dev
     """
@@ -39,6 +40,11 @@ def create_app(object_name, env="prod"):
     #init SQLAlchemy
     db.init_app(app)
 
+    #int Flask-admin
+    admin = Admin(app)
+    from controllers.admin import MyView
+    admin.add_view(MyView(name='Hello'))
+
     # Import and register the different asset bundles
     assets_env.init_app(app)
     assets_loader = PythonAssetsLoader(assets)
@@ -53,8 +59,8 @@ def create_app(object_name, env="prod"):
 
 if __name__ == '__main__':
     # Import the config for the proper environment using the
-    # shell var APPNAME_ENV
-    env = os.environ.get('APPNAME_ENV', 'prod')
-    app = create_app('appname.settings.%sConfig' % env.capitalize(), env=env)
+    # shell var ivy_3dprint_site_ENV
+    env = os.environ.get('ivy_3dprint_site_ENV', 'prod')
+    app = create_app('ivy_3dprint_site.settings.%sConfig' % env.capitalize(), env=env)
 
     app.run()

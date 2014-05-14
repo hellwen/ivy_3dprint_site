@@ -1,11 +1,11 @@
 #! ../env/bin/python
 # -*- coding: utf-8 -*-
-from appname import create_app
+from ivy_3dprint_site import create_app
 
 
 class TestConfig:
     def test_dev_config(self):
-        app = create_app('appname.settings.DevConfig', env='dev')
+        app = create_app('ivy_3dprint_site.settings.DevConfig', env='dev')
 
         assert app.config['DEBUG'] is True
         assert app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///../database.db'
@@ -13,7 +13,7 @@ class TestConfig:
         assert app.config['CACHE_TYPE'] == 'null'
 
     def test_prod_config(self):
-        app = create_app('appname.settings.ProdConfig', env='prod')
+        app = create_app('ivy_3dprint_site.settings.ProdConfig', env='prod')
 
         assert app.config['SQLALCHEMY_DATABASE_URI'] == 'sqlite:///../database.db'
         assert app.config['CACHE_TYPE'] == 'simple'
