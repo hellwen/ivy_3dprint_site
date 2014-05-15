@@ -68,8 +68,8 @@ class File(db.Document):
 
 class Photo(db.Document):
     name = db.StringField(max_length=50)
-    #photo = db.FileField()
-    photo = db.ImageField()
+    photo = db.FileField()
+    #photo = db.ImageField()
 
     def __unicode__(self):
         return self.name
@@ -93,8 +93,7 @@ class Title(db.EmbeddedDocument):
 class Product_photo(db.EmbeddedDocument):
     lang = db.ReferenceField(Lang, required=True)
     photo = db.ReferenceField(Photo, required=False)
-    #note = db.StringField(max_length=1000)
-    note = db.UnicodeTextField(max_length=1000)
+    note = db.StringField(max_length=1000)
 
     def __unicode__(self):
         return self.note
