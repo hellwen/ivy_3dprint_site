@@ -43,13 +43,10 @@ def create_app(object_name, env="prod"):
 
     #int Flask-admin
     admin = Admin(app)
-    from controllers.admin import UserView, TodoView, PostView, ProductView
-    from models import User, Todo, Tag, Post, File, Lang, Photo, Product
+    from controllers.admin import UserView, ProductView
+    from models import User, Tag, Lang, Photo, Product
     admin.add_view(UserView(User))
-    admin.add_view(TodoView(Todo))
     admin.add_view(ModelView(Tag))
-    admin.add_view(PostView(Post))
-    admin.add_view(ModelView(File))
     admin.add_view(ModelView(Lang))
     admin.add_view(ModelView(Photo))
     admin.add_view(ProductView(Product))

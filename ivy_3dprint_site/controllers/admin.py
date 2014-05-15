@@ -15,33 +15,6 @@ class UserView(ModelView):
     }
 
 
-class TodoView(ModelView):
-    column_filters = ['done']
-
-    form_ajax_refs = {
-        'user': {
-            'fields': ['name']
-        }
-    }
-
-
-class PostView(ModelView):
-    form_subdocuments = {
-        'inner': {
-            'form_subdocuments': {
-                None: {
-                    # Add <hr> at the end of the form
-                    'form_rules': ('name', 'tag', 'value', rules.HTML('<hr>')),
-                    'form_widget_args': {
-                        'name': {
-                            'style': 'color: red'
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 class ProductView(ModelView):
     form_subdocuments = {
         'title': {
@@ -49,6 +22,11 @@ class ProductView(ModelView):
                 None: {
                     # Add <hr> at the end of the form
                     'form_rules': ('lang', 'name', rules.HTML('<hr>')),
+                    'form_widget_args': {
+                        'name': {
+                            'style': 'color: red'
+                            }
+                        }
                     }
                 }
             },

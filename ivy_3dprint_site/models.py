@@ -27,44 +27,12 @@ class User(db.Document):
         return self.name
 
 
-class Todo(db.Document):
-    title = db.StringField(max_length=60)
-    text = db.StringField()
-    done = db.BooleanField(default=False)
-    pub_date = db.DateTimeField(default=datetime.datetime.now)
-    user = db.ReferenceField(User, required=False)
-
-    # Required for administrative interface
-    def __unicode__(self):
-        return self.title
-
-
 class Tag(db.Document):
     name = db.StringField(max_length=10)
 
     def __unicode__(self):
         return self.name
 
-
-class Comment(db.EmbeddedDocument):
-    name = db.StringField(max_length=20, required=True)
-    value = db.StringField(max_length=20)
-    tag = db.ReferenceField(Tag)
-
-
-class Post(db.Document):
-    name = db.StringField(max_length=20, required=True)
-    value = db.StringField(max_length=20)
-    inner = db.ListField(db.EmbeddedDocumentField(Comment))
-    lols = db.ListField(db.StringField(max_length=20))
-
-
-class File(db.Document):
-    name = db.StringField(max_length=20)
-    data = db.FileField()
-
-
-# Define my documents
 
 class Photo(db.Document):
     name = db.StringField(max_length=50)
@@ -92,6 +60,7 @@ class Title(db.EmbeddedDocument):
 
 class Product_photo(db.EmbeddedDocument):
     lang = db.ReferenceField(Lang, required=True)
+    #order = db.IntegerField()
     photo = db.ReferenceField(Photo, required=False)
     note = db.StringField(max_length=1000)
 
