@@ -5,19 +5,15 @@ from flask.ext.admin.form import rules
 # Customized admin views
 class UserView(ModelView):
     column_filters = ['name']
-
     column_searchable_list = ('name', 'password')
-
-    form_ajax_refs = {
-        'tags': {
-            'fields': ('name',)
-        }
-    }
 
 
 class ProductView(ModelView):
+    #column_filters = ['name']
+    #column_searchable_list = ('name')
+
     form_subdocuments = {
-        'title': {
+        'name': {
             'form_subdocuments': {
                 None: {
                     # Add <hr> at the end of the form
@@ -34,7 +30,7 @@ class ProductView(ModelView):
             'form_subdocuments': {
                 None: {
                     # Add <hr> at the end of the form
-                    'form_rules': ('lang', 'photo', 'note', rules.HTML('<hr>')),
+                    'form_rules': ('lang', 'order', 'photo', 'title', 'note', rules.HTML('<hr>')),
                     }
                 }
             }

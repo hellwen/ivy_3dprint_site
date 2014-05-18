@@ -20,7 +20,6 @@ db = MongoEngine()
 # Define mongoengine documents
 class User(db.Document):
     name = db.StringField(max_length=40)
-    tags = db.ListField(db.ReferenceField('Tag'))
     password = db.StringField(max_length=40)
 
     def __unicode__(self):
@@ -36,8 +35,8 @@ class Tag(db.Document):
 
 class Photo(db.Document):
     name = db.StringField(max_length=50)
-    photo = db.FileField()
-    #photo = db.ImageField()
+    #photo = db.FileField()
+    photo = db.ImageField()
 
     def __unicode__(self):
         return self.name
@@ -50,9 +49,9 @@ class Lang(db.Document):
         return self.name
 
 
-class Title(db.EmbeddedDocument):
+class Product_name(db.EmbeddedDocument):
     lang = db.ReferenceField(Lang, required=True)
-    name = db.StringField(max_length=50)
+    name = db.StringField(max_length=100)
 
     def __unicode__(self):
         return self.name
@@ -60,15 +59,18 @@ class Title(db.EmbeddedDocument):
 
 class Product_photo(db.EmbeddedDocument):
     lang = db.ReferenceField(Lang, required=True)
-    #order = db.IntegerField()
+    order = db.IntField()
     photo = db.ReferenceField(Photo, required=False)
+    title = db.StringField(max_length=100)
     note = db.StringField(max_length=1000)
 
     def __unicode__(self):
         return self.note
 
 class Product(db.Document):
-    name = db.StringField(max_length=50, required=True)
-    title = db.ListField(db.EmbeddedDocumentField(Title))
+    iden = db.StringField(max_length=50, required=True)
+    order = db.IntField()
+    tags = db.ListField(db.ReferenceField('Tag'))
+    name = db.ListField(db.EmbeddedDocumentField(Product_name))
     photo = db.ListField(db.EmbeddedDocumentField(Product_photo))
 
