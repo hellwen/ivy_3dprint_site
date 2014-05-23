@@ -11,18 +11,23 @@ main = Blueprint('main', __name__)
 @cache.cached(timeout=1000)
 def home():
 
-    products = Product.objects(order__lte=3)
-    #products = Product.objects()
+    #products = Product.objects(order__lte=3)
+    products = Product.objects()
 
     return render_template('index.html', products=products)
 
 @main.route('/products')
 def products():
-    return render_template('products.html')
+    products = Product.objects()
+
+    return render_template('products.html', products=products)
 
 @main.route('/product/<string:iden>')
 def product(iden):
-    return render_template('product.html')
+
+    product = Product.objects()[0]
+
+    return render_template('product.html', product=product)
 
 @main.route('/wtform', methods=['GET', 'POST'])
 def wtform():

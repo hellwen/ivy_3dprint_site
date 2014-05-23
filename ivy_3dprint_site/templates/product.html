@@ -6,43 +6,35 @@
 
       <!-- START THE FEATURETTES -->
 
+      <h2>{{ product.name[0].name }}</h2>
+
       <hr class="featurette-divider">
 
+      {% for p in product.photo %}
+
       <div class="row featurette">
+        {% if loop.index % 2 == 0 %}
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">{{ p.title }}</h2>
+          <p class="lead">{{ p.note }}</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="/admin/photoview/api/file/?coll=images&id={{ p.photo.photo.grid_id }}">
         </div>
+        {% else %}
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" src="/admin/photoview/api/file/?coll=images&id={{ p.photo.photo.grid_id }}">
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{ p.title }}</h2>
+          <p class="lead">{{ p.note }}</p>
+        </div>
+        {% endif %}
       </div>
 
       <hr class="featurette-divider">
 
-      <div class="row featurette">
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
+      {% endfor %}
 
       <!-- /END THE FEATURETTES -->
 

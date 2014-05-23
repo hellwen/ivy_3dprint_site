@@ -59,7 +59,9 @@
       <div class="row">
         {% for product in products %}
         <div class="col-lg-4">
-          <a class="img1" href="{{ url_for('.product', iden=product.iden) }}"><img class="img-rounded" src="/admin/photoview/api/file/?coll=images&id=5378c16b4e6b354e50756960" style="width: 140px; height: 140px;"></a>
+          <a class="img1" href="{{ url_for('.product', iden=product.iden) }}">
+            <img class="img-rounded" src="/admin/photoview/api/file/?coll=images&id={{ product.photo[0].photo.photo.grid_id }}" style="width: 140px; height: 140px;">
+          </a>
           <h2>{{ product.photo[0].title }}</h2>
           <p>{{ product.photo[0].note }}</p>
         </div><!-- /.col-lg-4 -->
