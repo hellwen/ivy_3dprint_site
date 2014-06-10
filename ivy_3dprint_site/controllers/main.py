@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, flash, request
 
 from ivy_3dprint_site import cache
 from ivy_3dprint_site.models import Product, Photo
-from ivy_3dprint_site.forms import MyForm
 
 main = Blueprint('main', __name__)
 

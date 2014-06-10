@@ -19,10 +19,13 @@
 
         <div class="col-lg-4">
           <a class="img1" href="{{ url_for('.product', iden=product.iden) }}">
-            <img class="img-rounded" src="/admin/photoview/api/file/?coll=images&id={{ product.photo[0].photo.photo.grid_id }}" style="width: 140px; height: 140px;">
+            <img class="img-rounded"
+            src="/admin/photoview/api/file/?coll=images&id={{
+            product.photo[0].photo.photo.grid_id }}" style="width: 250px;
+            height: 250px;">
           </a>
-          <h2>{{ product.photo[0].title }}</h2>
-          <p>{{ product.photo[0].note }}</p>
+          <p/>
+          <h4>{{ product.name[0].name }}</h4>
         </div><!-- /.col-lg-4 -->
 
       {% if loop.index % 3 == 0 %}
