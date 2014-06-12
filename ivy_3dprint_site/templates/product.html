@@ -13,7 +13,11 @@
       {% for p in product.photo %}
 
       <div class="product row featurette">
-        {% if loop.index % 2 == 0 %}
+        {% if not loop.first and loop.last %}
+        <div class="col-md-12">
+          <img class="featurette-image img-responsive" src="/admin/photoview/api/file/?coll=images&id={{ p.photo.photo.grid_id }}">
+        </div>
+        {% elif loop.index % 2 == 0 %}
         <div class="col-md-7">
           <h2 class="featurette-heading">{{ p.title }}</h2>
           <pre class="lead">{{ p.note }}</pre>
