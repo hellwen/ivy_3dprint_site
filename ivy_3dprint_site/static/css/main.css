@@ -29,6 +29,7 @@ body {
 .navbar-wrapper .navbar {
   padding-left: 15px;
   padding-right: 15px;
+  height: 60px;
 }
 
 
@@ -157,6 +158,10 @@ body {
     margin-bottom: 20px;
     font-size: 21px;
     line-height: 1.4;
+  }
+
+  .navbar-wrapper .navbar {
+    height: 60px;
   }
 
 }

@@ -27,3 +27,7 @@ def product(iden):
 
     return render_template('product.html', product=product)
 
+@main.route('/downloads')
+def downloads():
+    return render_template('downloads.html')
+
