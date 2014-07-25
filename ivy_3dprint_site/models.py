@@ -35,7 +35,6 @@ class Tag(db.Document):
 
 class Photo(db.Document):
     name = db.StringField(max_length=50)
-    #photo = db.FileField()
     photo = db.ImageField()
 
     def __unicode__(self):
@@ -73,4 +72,19 @@ class Product(db.Document):
     tags = db.ListField(db.ReferenceField('Tag'))
     name = db.ListField(db.EmbeddedDocumentField(Product_name))
     photo = db.ListField(db.EmbeddedDocumentField(Product_photo))
+
+
+class File(db.Document):
+    lang = db.ReferenceField(Lang, required=True)
+    order = db.IntField()
+    name = db.StringField(max_length=50)
+    file = db.FileField()
+
+    def __unicode__(self):
+        return self.name
+
+
+class Contact(db.Document):
+    lang = db.ReferenceField(Lang, required=True)
+    text = db.StringField(max_length=1000)
 

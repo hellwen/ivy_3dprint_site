@@ -6,6 +6,7 @@ from flask.ext.admin.form import rules
 from flask.ext.mongoengine.wtf import orm, fields as mongo_fields
 from flask.ext.admin.contrib.mongoengine.form import CustomModelConverter, EmbeddedForm
 
+
 # Customized admin views
 class UserView(ModelView):
     column_filters = ['name']

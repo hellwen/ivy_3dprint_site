@@ -44,12 +44,15 @@ def create_app(object_name, env="prod"):
     #int Flask-admin
     admin = Admin(app)
     from controllers.admin import UserView, ProductView
-    from models import User, Tag, Lang, Photo, Product
+    from models import User, Tag, Lang, Photo, Product, File, Contact
+    from forms import CKTextAdmin
     admin.add_view(UserView(User))
     admin.add_view(ModelView(Tag))
     admin.add_view(ModelView(Lang))
     admin.add_view(ModelView(Photo))
+    admin.add_view(ModelView(File))
     admin.add_view(ProductView(Product))
+    admin.add_view(CKTextAdmin(Contact))
 
     # Import and register the different asset bundles
     assets_env.init_app(app)

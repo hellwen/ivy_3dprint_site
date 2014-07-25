@@ -1,20 +1,23 @@
 {% extends "base.html" %}
 
-{% block title %}Starter Template{% endblock %}
+{% block title %}Downloads{% endblock %}
 
 {% block body %}
 
-  <div class="container products">
+  <div class="container downloads">
 
     <h2>Downloads</h2>
 
     <hr class="downloads-divider">
 
-    <a href="http://www.w3schools.com/" target="_blank">
-      <img src="smiley.gif" alt="HTML tutorial" width="42" height="42">
-        Visit W3Schools
-      </img>
-    </a>
+    <p/>
+
+    {% for file in files %}
+      <a href="/admin/fileview/api/file/?coll=fs&id={{ file.file.grid_id }}" download="{{ file.file.name }}">
+        <h4>{{ file.name }}</h4>
+      </a>
+      <p/>
+    {% endfor %}
 
   </div><!-- /.container products -->  
 
