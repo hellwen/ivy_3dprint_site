@@ -8,6 +8,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" href="{{ url_for('static',
+        filename='images/favicon.png') }}" type="image/png" sizes="16x16">
         {% block meta %}
             <meta name="description" content="">
             <meta name="author" content="">
@@ -23,15 +25,16 @@
     </head>
 
     <body>
-        <div class="navbar navbar-inverse navbar-static-top" role="navigation"
-          height=30>
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation" height=30>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('.home') }}">ES 3D Printer</a>
+                <a class="navbar-brand" href="{{ url_for('.home') }}">
+                    <img class="img-responsive" style="margin:auto;" src="{{ url_for('static', filename='images/logo.png') }}">
+                </a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">

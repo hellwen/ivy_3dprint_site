@@ -12,44 +12,23 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner">
-          <div class="item active">
-          <div class="container">
-            <div class="carousel-caption">
-            <h1>Flask and MongoDB powered CMS</h1>
-              <p>
-              <img class="img-responsive" style="margin:auto;" src="https://raw.github.com/pythonhub/quokka/master/docs/logo.png" alt="..."></p>
-            </div>
-          </div>
+        <div class="item active">
+            <img class="img-responsive" src="{{ url_for('static',
+            filename='images/banner-1.jpg') }}">
         </div>
 
         <div class="item">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Quokka CMS</h1>
-              <p>Quokka is a flexible content management platform powered by Python, Flask and MongoDB.
-Quokka provides a "full-stack" Flask application plus a bunch of selected extensions to provide all the needed CMS admin features and a flexible-easy way to extend the platform with quokka-modules built following the Flask Blueprints pattern.</p>
-            </div>
-          </div>
+            <img class="img-responsive" src="{{ url_for('static',
+            filename='images/banner-2.jpg') }}">
         </div>
+
         <div class="item">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Current features</h1>
-              <p>Customizable admin interface,
-    Export data to json or csv,
-    multi-level unlimited nested channels (MPTT),
-    Beauty urls and SMART-SLUG,
-    Themes,
-    Extensible
-</p>
-            </div>
-          </div>
+            <img class="img-responsive" src="{{ url_for('static',
+            filename='images/banner-3.jpg') }}">
         </div>
 
       </div>
 
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div><!-- /.carousel -->
 
     <!-- Marketing messaging
