@@ -86,5 +86,10 @@ class File(db.Document):
 
 class Contact(db.Document):
     lang = db.ReferenceField(Lang, required=True)
-    text = db.StringField(max_length=1000)
+    text = db.StringField(max_length=5000)
+
+
+class About(db.Document):
+    lang = db.ReferenceField(Lang, required=True)
+    text = db.StringField(max_length=5000)
 
