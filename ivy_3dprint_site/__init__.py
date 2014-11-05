@@ -45,7 +45,7 @@ def create_app(object_name, env="prod"):
     admin = Admin(app)
     from controllers.admin import UserView, ProductView
     from models import User, Tag, Lang, Photo, Product, \
-        File, Contact, About
+        File, Sample, Contact, About
     from forms import CKTextAdmin
     admin.add_view(UserView(User))
     admin.add_view(ModelView(Tag))
@@ -53,6 +53,7 @@ def create_app(object_name, env="prod"):
     admin.add_view(ModelView(Photo))
     admin.add_view(ModelView(File))
     admin.add_view(ProductView(Product))
+    admin.add_view(CKTextAdmin(Sample))
     admin.add_view(CKTextAdmin(Contact))
     admin.add_view(CKTextAdmin(About))
 

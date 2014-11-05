@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, flash, request
+from flask import Blueprint, render_template
 
 from ivy_3dprint_site import cache
-from ivy_3dprint_site.models import Product, Photo, File, Contact, About
+from ivy_3dprint_site.models import Product, File, Sample, Contact, About
 
 main = Blueprint('main', __name__)
 
@@ -35,7 +35,8 @@ def downloads():
 
 @main.route('/sample')
 def sample():
-    return render_template('sample.html')
+    sample = Sample.objects()[0]
+    return render_template('sample.html', sample=sample)
 
 @main.route('/contact')
 def contact():

@@ -1,10 +1,9 @@
-from wtforms import fields, widgets
-from flask.ext.admin import Admin, BaseView, expose
+from wtforms import fields
 from flask.ext.admin.contrib.mongoengine import ModelView
 from flask.ext.admin.form import rules
 
-from flask.ext.mongoengine.wtf import orm, fields as mongo_fields
-from flask.ext.admin.contrib.mongoengine.form import CustomModelConverter, EmbeddedForm
+from flask.ext.mongoengine.wtf import orm
+from flask.ext.admin.contrib.mongoengine.form import CustomModelConverter
 
 
 # Customized admin views

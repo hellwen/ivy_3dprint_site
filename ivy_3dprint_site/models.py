@@ -11,8 +11,6 @@ class User(db.Model):
         self.username = username
         self.password = password
 """
-import datetime
-
 from flask.ext.mongoengine import MongoEngine
 db = MongoEngine()
 
@@ -90,6 +88,10 @@ class Contact(db.Document):
 
 
 class About(db.Document):
+    lang = db.ReferenceField(Lang, required=True)
+    text = db.StringField(max_length=5000)
+
+class Sample(db.Document):
     lang = db.ReferenceField(Lang, required=True)
     text = db.StringField(max_length=5000)
 
