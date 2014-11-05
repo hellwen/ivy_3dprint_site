@@ -29,7 +29,7 @@ def product(iden):
 
 @main.route('/downloads')
 def downloads():
-    files = File.objects()
+    files = File.objects().order_by("+order")
 
     return render_template('downloads.html', files=files)
 
