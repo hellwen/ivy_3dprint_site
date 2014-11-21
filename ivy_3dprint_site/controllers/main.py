@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template
 
 from ivy_3dprint_site import cache
-from ivy_3dprint_site.models import Product, File, Sample, Contact, About
+from ivy_3dprint_site.models import Product, File, Sample, \
+        Contact, About, Photo
 
 main = Blueprint('main', __name__)
 
@@ -11,8 +12,10 @@ main = Blueprint('main', __name__)
 def home():
 
     products = Product.objects(order__lte=3)[:3]
+    banners = Photo.objects(name__startswith='banner-')[:3].order_by("+name")
 
-    return render_template('index.html', products=products)
+    return render_template('index.html', products=products, \
+            banners=banners)
 
 @main.route('/products')
 def products():

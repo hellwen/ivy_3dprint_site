@@ -13,18 +13,15 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-            <img class="img-responsive" src="{{ url_for('static',
-            filename='images/banner-1.jpg') }}">
+            <img class="img-responsive" src="/admin/photoview/api/file/?coll=images&id={{ banners[0].photo.grid_id }}">
         </div>
 
         <div class="item">
-            <img class="img-responsive" src="{{ url_for('static',
-            filename='images/banner-2.jpg') }}">
+            <img class="img-responsive" src="/admin/photoview/api/file/?coll=images&id={{ banners[1].photo.grid_id }}">
         </div>
 
         <div class="item">
-            <img class="img-responsive" src="{{ url_for('static',
-            filename='images/banner-3.jpg') }}">
+            <img class="img-responsive" src="/admin/photoview/api/file/?coll=images&id={{ banners[2].photo.grid_id }}">
         </div>
 
       </div>
